@@ -1,0 +1,94 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --color-body: #000;
+    --color-white: #fff;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: sans-serif;
+    font-weight: 400;
+    font-size: 1.8rem;
+    background-color: var(--color-body);
+}
+
+h1 {
+    font-size: 8rem;
+    text-align: center;
+    background: -webkit-linear-gradient(#6617cb, #cb218e);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bold;
+    margin: 2rem auto;
+}
+
+.accordion {
+    width: 90%;
+    max-width: 1024px;
+    margin: auto;
+}
+
+.accordion__item {
+    background-color: var(--color-white);
+    margin-bottom: 2rem;
+    font-size: 1.8rem;
+    padding: 1rem;
+    border-radius: 1rem;
+}
+
+.accordion__item--head {
+    min-height: 3.2rem;
+    padding: 2rem 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.accordion__item--head::after {
+    content: "\002B";
+    position: absolute;
+    font-size: 1.8rem;
+    right: 1rem;
+}
+
+.accordion__item.active .accordion__item--head::after {
+    content: "\2212";
+}
+
+.accordion__item__body--content {
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.5s ease-in-out;
+}
+
+.accordion__item.active .accordion__item__body--content {
+    max-height: 100vh;
+    opacity: 1;
+}
+
+.accordion__item__body--text {
+    padding: 1rem;
+    border-top: 1px solid #6617cb;
+}
+
+@media screen and (max-width: 768px) {
+    h1 {
+        font-size: 4rem;
+    }
+
+    .accordion__item {
+        font-size: 1.6rem;
+    }
+}
